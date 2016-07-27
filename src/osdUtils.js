@@ -1,4 +1,5 @@
 require('openseadragon');
+require('./lib/openseadragon-scalebar.js');
 
 var OSDUtils = function() {
 };
@@ -9,6 +10,22 @@ OSDUtils.prototype = {
       element: osdContainer[0],
       showNavigationControl: false,
       preserveViewport: true
+    });
+
+    this.viewer.scalebar({ 
+      'type': 3, // RULER
+      'minWidth': '300px',
+      'location': 4, // BOTTOM_LEFT
+      'xOffset': 10,
+      'yOffset': 10,
+      'orientation': 1, // VERTICAL
+      'stayInsideImage': true,
+      'color': 'black',
+      'fontColor': 'rgb(100, 100, 100)',
+      'backgroundColor': 'rgba(255, 255, 255, 0.3)',
+      'fontSize': 'small',
+      'barThickness': 1,
+      'pixelsPerMeter': 100
     });
 
     return this.viewer;
